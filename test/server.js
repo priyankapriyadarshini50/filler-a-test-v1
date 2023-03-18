@@ -55,7 +55,7 @@ const getDomElements = got(file_url).then(response => {
     //get_json_data(dom.window.document);
     //get_metadata_form(dom.window.document);
     var metadata_json = extract_obj.extract(dom.window);
-    console.log(metadata_json);
+    //console.log(metadata_json);
     var match_cc_data = match_obj.match(metadata_json);
         
     }).catch(err => {

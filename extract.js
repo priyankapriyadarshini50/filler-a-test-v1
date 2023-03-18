@@ -28,6 +28,6 @@ module.exports.extract = function(window) {
   fs.writeFile("./metadata.json", metadata_json, function(err, result) {
     if(err) console.log('error', err);
   });
-  return metadata_json;
+  return metadata_dict;
 
 }
