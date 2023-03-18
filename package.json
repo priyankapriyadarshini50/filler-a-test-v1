@@ -1,0 +1,24 @@
+{
+  "name": "fillr-test-a",
+  "version": "0.0.1",
+  "description": "Coding test to work through creating field mappings, javascript and regular expressions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "got": "^10.4.0",
+    "jsdom": "11.3.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0"
+  }
+}
