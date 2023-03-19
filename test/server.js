@@ -15,7 +15,7 @@ app.listen(PORT, ()=>{console.log(`Running the server on port ${PORT}`)});
 
 app.get('/', function(req, res) {
     var file_path = path.join(__dirname, '../assets/autofill.mozdev.org.autofilltest.html');
-    console.log("path to file", file_path);
+    
     res.sendFile(path.join(__dirname, '../assets/autofill.mozdev.org.autofilltest.html'));
     
 });
@@ -23,11 +23,12 @@ app.get('/', function(req, res) {
 
 //it creates mapping.json file
 function get_json_data(document){
-    var elements = document.querySelectorAll('input[type=text]');
-    console.log(document.querySelectorAll('input[type=text], input[type=password]').length);
+
+    var elements = document.querySelectorAll('input[data-fillr-id]:not(.gsc-search-button), select[data-fillr-id]');
+    console.log(elements.length);
     var form_json = {};
     elements.forEach(ele => {
-        //console.log(typeof(ele.name));
+        //console.log(ele.name);
         if (ele.autocomplete === 'off'){
             console.log('Do not add that element');
         }else{
@@ -38,8 +39,8 @@ function get_json_data(document){
     });
     
     var output_json_data = JSON.stringify(form_json, null, "\t");
-    //console.log(output_json_data);
-    fs.writeFile("../mapping.json", output_json_data, function(err, result) {
+   
+    fs.writeFile("./mapping.json", output_json_data, function(err, result) {
         if(err) console.log('error', err);
     });
     
@@ -50,20 +51,17 @@ var file_url = 'http://localhost:8080/';
 const getDomElements = got(file_url).then(response => {
     const dom = new JSDOM(response.body);
     
-    console.log(dom.window.document.querySelector('title').textContent);
    
-    //get_json_data(dom.window.document);
-    //get_metadata_form(dom.window.document);
-    var metadata_json = extract_obj.extract(dom.window);
-    //console.log(metadata_json);
-    var match_cc_data = match_obj.match(metadata_json);
+    get_json_data(dom.window.document);
+   
+    //var metadata_json = extract_obj.extract(dom.window);
+    
+    //var match_cc_data = match_obj.match(metadata_json);
         
     }).catch(err => {
     console.log(err);
   
 });
 app.post('/adduser',function(request,response){
-    console.log(request.body) //you will get your data in this as object.
+    console.log(request.body);
  })
-
- //module.exports.getDomElements = getDomElements;

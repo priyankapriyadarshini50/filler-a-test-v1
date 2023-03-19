@@ -62,6 +62,7 @@
 	"Ecom_Payment_Card_Protocol": "section-ecompay transaction-currency",
 	"Ecom_ConsumerOrderID": "section-user name",
 	"Ecom_User_ID": "section-user username",
+	"Ecom_User_Password": "section-user current-password",
 	"Ecom_SchemaVersion": "section-user ",
 	"Ecom_WalletID": "section-user username"
 }

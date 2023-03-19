@@ -62,7 +62,7 @@ Please show your working! The more commits in progress the better (this allows u
 - installed the following libraries: express, got, jsdom, chai, mocha and body-parser using npm install
 
 ## Assumption and approach
-- I tried serve the static html file using express.js on port 8080
+- I tried to serve the static html file using express.js on port 8080
 - have used 'got' library to call the endpoint (http://localhost:8080/) and accessed the DOM elememt
 - navigate to test folder in command prompt and run > node server.js, user can view the "mozdev.org" page on their browser
 
@@ -77,7 +77,7 @@ Please show your working! The more commits in progress the better (this allows u
 - created a json hash object with "label" as keys and "<label> <name>" as values, as per the requirement
 - in addition, created a  json file named "metadata.json" (test folder> metadata.json)
 - to get metadata.json run the command> node server.js
-- to run the test for extract function, run the command > npm test, it will display as passed
+- to run the test for extract function, run the command > npm run test, it will display as passed
 
 ### For Match Credit Card Control
 - added and exported a function named 'match' in the match.js module
@@ -85,4 +85,4 @@ Please show your working! The more commits in progress the better (this allows u
 - created a patter which would match with the "card expiration date" in day month and year format
 - matched data kept in array , as per the requirement
 - to get the array, run command > node server.js
-- to run the test, run command > npm test
+- to run the test, run command > npm run test
