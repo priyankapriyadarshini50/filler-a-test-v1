@@ -2,8 +2,8 @@ const fs = require('fs');
 module.exports.extract = function(window) {
   
   // Write your solution to Task #2 - Extract Metadata task here
-  console.log('extract is called');
   var metadata_dict = {};
+  // get all the table elements with cols attribute
   var tables = window.document.querySelectorAll('table[cols]');
   tables.forEach(table => {
     var rows = table.querySelectorAll('tbody tr');
@@ -18,8 +18,9 @@ module.exports.extract = function(window) {
     });
         
   });
-  console.log('Length of metadata',Object.keys(metadata_dict).length);
+
   var metadata_json =JSON.stringify(metadata_dict, null, '\t');
+  // created a metadata.json file in the project folder for reference
   fs.writeFile("./metadata.json", metadata_json, function(err, result) {
     if(err) console.log('error', err);
   });

@@ -57,19 +57,20 @@ Please show your working! The more commits in progress the better (this allows u
 # Fillr Test Solution
 
 ## Steps to Follow
-- to run the server use command > node server.js
 - have developed on windows 10 OS
+- node version v18.15
 - installed the following libraries: express, got, jsdom, chai, mocha and body-parser using npm install
+- to run the server use command >npm run test or (in the test folder)>node server.js 
 
 ## Assumption and approach
 - I tried to serve the static html file using express.js on port 8080
 - have used 'got' library to call the endpoint (http://localhost:8080/) and accessed the DOM elememt
-- navigate to test folder in command prompt and run > node server.js, user can view the "mozdev.org" page on their browser
+- navigate to test folder in command prompt and run > node server.js or npm run test, user can view the "mozdev.org" page on their browser
 
 ### For Form Mapping Solution
-- added 'autocomplete' attribute in the form input controls and tried to provid more accurate values/autofill detail tokens as per the WHATWG Living Spec
+- added 'autocomplete' attribute in the form input controls and tried to provid more accurate values/autofill detail tokens as per the WHATWG Living Spec in the html file
 - have accessed 'name' and 'autocomplete' attribute values in a dictionary format and wrote a script so that it creates mapping.json file, as per the requirement
-- navigate to test folder in command prompt and run > node server.js, user can view the mapping.json file with the expected json data
+- navigate to test folder in command prompt and run > node server.js or npm run test, user can view the mapping.json file with the expected json data
 
 ### For Extract Metadata
 - added and exported a function named 'extract' in the extract.js module
@@ -84,5 +85,4 @@ Please show your working! The more commits in progress the better (this allows u
 - passsed the metadata json object to that function as parameter
 - created a patter which would match with the "card expiration date" in day month and year format
 - matched data kept in array , as per the requirement
-- to get the array, run command > node server.js
 - to run the test, run command > npm run test

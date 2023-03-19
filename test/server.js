@@ -25,10 +25,9 @@ app.get('/', function(req, res) {
 function get_json_data(document){
 
     var elements = document.querySelectorAll('input[data-fillr-id]:not(.gsc-search-button), select[data-fillr-id]');
-    console.log(elements.length);
+    
     var form_json = {};
     elements.forEach(ele => {
-        //console.log(ele.name);
         if (ele.autocomplete === 'off'){
             console.log('Do not add that element');
         }else{
@@ -37,7 +36,7 @@ function get_json_data(document){
             form_json[key_data] = value_data;
         }
     });
-    
+
     var output_json_data = JSON.stringify(form_json, null, "\t");
    
     fs.writeFile("./mapping.json", output_json_data, function(err, result) {
@@ -51,7 +50,7 @@ var file_url = 'http://localhost:8080/';
 const getDomElements = got(file_url).then(response => {
     const dom = new JSDOM(response.body);
     
-   
+    //below function craetes the mapping.json file
     get_json_data(dom.window.document);
    
     //var metadata_json = extract_obj.extract(dom.window);
@@ -62,6 +61,8 @@ const getDomElements = got(file_url).then(response => {
     console.log(err);
   
 });
+
+// to submit the form
 app.post('/adduser',function(request,response){
-    console.log(request.body);
+    console.log('Form submitted');
  })

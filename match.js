@@ -1,9 +1,9 @@
 module.exports.match = function(hash) {
 
   // Write your solution to Task #2 - Match Metadata task here
-  console.log('match is called');
   
   const card_expiry_info = [];
+  //pattern for card expire info
   var cc_pattern = /card\sexpire\sdate\s\b[dmy][a-z]+/g;
   for (let key in hash) {
 
