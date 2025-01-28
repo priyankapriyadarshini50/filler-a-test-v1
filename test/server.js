@@ -8,17 +8,17 @@ var match_obj = require('../match.js');
 var extract_obj = require('../extract.js');
 var app = express();
 
-const PORT=8080;
+//const PORT=8080;
 
-app.listen(PORT, ()=>{console.log(`Running the server on port ${PORT}`)});
+//app.listen(PORT, ()=>{console.log(`Running the server on port ${PORT}`)});
 
 
-app.get('/', function(req, res) {
-    var file_path = path.join(__dirname, '../assets/autofill.mozdev.org.autofilltest.html');
+//app.get('/', function(req, res) {
+    //var file_path = path.join(__dirname, '../assets/autofill.mozdev.org.autofilltest.html');
     
-    res.sendFile(path.join(__dirname, '../assets/autofill.mozdev.org.autofilltest.html'));
+    //res.sendFile(path.join(__dirname, '../assets/autofill.mozdev.org.autofilltest.html'));
     
-});
+//});
 
 
 //it creates mapping.json file
@@ -45,24 +45,30 @@ function get_json_data(document){
     
 }
 
+var file_path = path.join(__dirname, '../assets/autofill.mozdev.org.autofilltest.html')
+var html = fs.readFile(file_path, 'utf8', (err, data) => {
+    if(err){
+        console.error("Error reading the file: err");
+        return;
+    }
+    console.log('File contents');
+})
 
-var file_url = 'http://localhost:8080/';
-const getDomElements = got(file_url).then(response => {
-    const dom = new JSDOM(response.body);
+const dom = new JSDOM(html);
+get_json_data(dom.window.document);
+
+//var file_url = 'http://localhost:8080/';
+//const getDomElements = got(file_url).then(response => {
+    //const dom = new JSDOM(response.body);
     
     //below function craetes the mapping.json file
-    get_json_data(dom.window.document);
+    //get_json_data(dom.window.document);
    
     //var metadata_json = extract_obj.extract(dom.window);
     
     //var match_cc_data = match_obj.match(metadata_json);
         
-    }).catch(err => {
-    console.log(err);
+    //}).catch(err => {
+    //console.log(err);
   
-});
-
-// to submit the form
-app.post('/adduser',function(request,response){
-    console.log('Form submitted');
- })
+//});
