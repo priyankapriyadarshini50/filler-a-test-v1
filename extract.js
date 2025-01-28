@@ -9,7 +9,8 @@ module.exports.extract = function(window) {
     var rows = table.querySelectorAll('tbody tr');
     rows.forEach(row => {
       var label = row.querySelector('td:nth-child(1)');
-      if(label.textContent.length !== 1){
+      console.log("labels", label.textContent)
+      if(label.textContent.trim().length !== 0){
           var input_ele = row.querySelector('td:nth-child(2) input, td:nth-child(2) select');
           var meta_data_ele = label.textContent.trim() + ' ' + input_ele.name.trim();
           metadata_dict[label.textContent.trim()] = meta_data_ele.trim();
